@@ -1,11 +1,13 @@
 import './App.css';
-import * as Unicons from '@iconscout/react-unicons';
+import React from 'react';
+import TopNav from './components/TopNav';
+import Main from './components/Main';
 
 function App() {
   return (
-    <div className="App">
-     <p className='text-red-500'>Hello World!</p>
-     <Unicons.UilReact/>
+    <div className="App overflow-hidden">
+      <TopNav />
+      <Main />
     </div>
   );
 }
