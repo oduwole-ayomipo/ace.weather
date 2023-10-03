@@ -1,12 +1,13 @@
 import './App.css';
 import React from 'react';
-import TopNav from './components/TopNav';
+import Logo from './components/Logo'
 import Main from './components/Main';
+
 
 function App() {
   return (
-    <div className="App overflow-hidden">
-      <TopNav />
+    <div className="App overflow-hidden w-full md:flex">
+      <Logo />
       <Main />
     </div>
   );

@@ -16,8 +16,8 @@ module.exports = {
         white: "#FFFFFF",
         black: "#000000",
         primary: "#F1F0EA",
+        accent: "#534B52",
         secondary: "#474448",
-        accent: "#534B52"
       }
     }
   },
