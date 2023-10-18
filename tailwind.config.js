@@ -14,9 +14,8 @@ module.exports = {
     colors: {
       custom: {
         white: "#FFFFFF",
-        black: "#000000",
+        accent: "#4C424B",
         primary: "#F1F0EA",
-        accent: "#534B52",
         secondary: "#474448",
       }
     }

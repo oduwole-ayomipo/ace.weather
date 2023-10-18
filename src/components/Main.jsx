@@ -4,16 +4,46 @@ import SearchBar from './SearchBar'
 
 
 function Main() {
+
+    // Date format logic
+    function formatDate() {
+        const currentDate = new Date();
+
+        let days = ["Monday", 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        let months = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Decembera']
+
+        // formatting the time
+        const hours = currentDate.getHours()
+        const minutes = currentDate.getMinutes()
+        const amPM = hours >= 12 ? "PM" : "AM"
+        const timeformat = `${hours % 12 || 12}:${minutes}${amPM}`
+
+        // formatting the date
+        const weekDay = days[currentDate.getDay()];
+        const month = months[currentDate.getMonth()];
+        const date = currentDate.getDate()
+        const dateformat = `${weekDay}, ${month} ${date}`
+
+        const dateAndTime = `${timeformat} ${dateformat}`
+
+        return dateAndTime;
+    }
+
+    
+    const formattedDate = formatDate()
+
   return (
-    <div className='main-container w-full'>
+    <div className='main-container relative w-full opacity-80'>
         <SearchBar />
         <div className='flex flex-col justify-start bg-custom-primary p-3 min-[520px]:px-6 md:py-8'>
             <div className='card-top-data py-3'>
-                <h4 className='font-Coiny text-[15px] uppercase md:text-2xl'>06:09 - Monday, 9 Sep '23</h4>
+                <h4 className='font-Coiny text-[15px] uppercase md:text-2xl'>{formattedDate}</h4>
                 <h3 className='font-Comfortaa text-[11px] md:text-lg'>Raining</h3>
             </div>
             <div className='weather-image'>
-                <img className='h-28 md:h-36' />
+                <img 
+                    className='h-28 md:h-36' 
+                    alt=''/>
             </div>
             <div className='main-weather-data flex items-center'>
                 <div className='font-Coiny flex text-7xl leading-[70px] md:text-9xl'>
