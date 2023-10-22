@@ -53,13 +53,11 @@ function Main() {
                                    ${month}  
                                    '${currentDate.getFullYear().toString().substr(2, 2)}`
 
-        const daySix_dateformat = `${days[currentDate.getDay() + 6]},
+        const daySix_dateformat = `${days[currentDate.getDay() - 1]},
                                    ${currentDate.getDate() + 6}
                                    ${month}  
                                    '${currentDate.getFullYear().toString().substr(2, 2)}`
 
-
-        
         return {
             dateAndTime,
             dayOne_dateformat,
@@ -77,7 +75,7 @@ function Main() {
   return (
     <div className='main-container relative w-full opacity-80'>
         <SearchBar />
-        <div className='flex flex-col justify-start bg-custom-primary p-3 min-[520px]:px-6 md:py-8'>
+        <div className='flex flex-col justify-start p-3 min-[520px]:px-6 md:py-8'>
             <div className='card-top-data py-3'>
                 <h4 className='font-Coiny text-[15px] uppercase md:text-2xl'>{formattedDate.dateAndTime}</h4>
                 <h3 className='font-Comfortaa text-[11px] md:text-lg'>Raining</h3>
@@ -109,40 +107,28 @@ function Main() {
                 {/* card group container */}
                 <div className='w-full md:flex md:gap-4' > 
                     <Card 
-                        backgroundColor={"custom-secondary"}
-                        textColor={"custom-white"}
                         flexDirection={"col"}
                         nextDate={formattedDate.dayOne_dateformat}
                     />
                     <Card 
-                        backgroundColor={"custom-white"}
-                        textColor={"custom-secondary"} 
                         flexDirection={"col"}
                         nextDate={formattedDate.dayTwo_dateformat}                      
                     />
                     <Card 
-                        backgroundColor={"custom-accent"}
-                        textColor={"custom-white"}
                         flexDirection={"col"}
                         nextDate={formattedDate.dayThree_dateformat}
                     />
                     <Card
-                        backgroundColor={"custom-primary"}
-                        textColor={"custom-secondary"} 
                         flexDirection={"col"}
                         nextDate={formattedDate.dayFour_dateformat}
                     />
                 </div>
                 <div className='md:flex md:justify-between gap-4' > 
                     <Card 
-                        backgroundColor={"custom-white"}
-                        textColor={"custom-secondary"} 
                         nextDate={formattedDate.dayFive_dateformat}
                     />
                     
                     <Card 
-                        backgroundColor={"custom-white"}
-                        textColor={"custom-secondary"} 
                         nextDate={formattedDate.daySix_dateformat}
                     />
                 </div>

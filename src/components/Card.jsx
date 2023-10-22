@@ -1,11 +1,10 @@
 import React from 'react'
 
-function Card({ backgroundColor, 
-                textColor, 
+function Card({  
                 flexDirection,
                 nextDate }) {
   return (
-    <div className={`card-container flex flex-col gap-16 w-full  bg-${backgroundColor} text-${textColor} p-4 my-3 cursor-pointer rounded-xl drop-shadow-lg  md:gap-20`}>
+    <div className={`card-container flex flex-col gap-16 w-full backdrop-blur-[20px] bg-gradient-to-br from-[#FFFFFF33]  text-custom-secondary p-4 my-3 cursor-pointer rounded-xl md:gap-20`}>
         <div className='card-top-data'>
             <h4 className='font-Coiny text-sm md:text-xs uppercase'>{nextDate}</h4>
             <h3 className='font-Comfortaa text-[10px]'>Raining</h3>

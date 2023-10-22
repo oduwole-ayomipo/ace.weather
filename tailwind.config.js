@@ -13,6 +13,8 @@ module.exports = {
     },
     colors: {
       custom: {
+        purple: '#C6BAF6',
+        orange: '#F1C2C2',
         white: "#FFFFFF",
         accent: "#4C424B",
         primary: "#F1F0EA",
