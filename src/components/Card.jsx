@@ -2,11 +2,12 @@ import React from 'react'
 
 function Card({ backgroundColor, 
                 textColor, 
-                flexDirection}) {
+                flexDirection,
+                nextDate }) {
   return (
     <div className={`card-container flex flex-col gap-16 w-full  bg-${backgroundColor} text-${textColor} p-4 my-3 cursor-pointer rounded-xl drop-shadow-lg  md:gap-20`}>
         <div className='card-top-data'>
-            <h4 className='font-Coiny text-sm md:text-xs'>TUESDAY, 11 Sep '23</h4>
+            <h4 className='font-Coiny text-sm md:text-xs uppercase'>{nextDate}</h4>
             <h3 className='font-Comfortaa text-[10px]'>Raining</h3>
         </div>
         <div className={`weather-parameter flex flex-row weather-parameter font-Comfortaa text-xs max-[315px]:text-[9px] md:flex-${flexDirection} md:gap-2`}>

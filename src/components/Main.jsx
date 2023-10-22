@@ -9,24 +9,66 @@ function Main() {
     function formatDate() {
         const currentDate = new Date();
 
-        let days = ["Monday", 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-        let months = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Decembera']
+        let days = ["Monday", 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday', 'Sunday']   
+        let months = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'Sept', 'Oct', 'Nov', 'Dec']
 
         // formatting the time
         const hours = currentDate.getHours()
         const minutes = currentDate.getMinutes()
         const amPM = hours >= 12 ? "PM" : "AM"
         const timeformat = `${hours % 12 || 12}:${minutes}${amPM}`
+        
 
         // formatting the date
         const weekDay = days[currentDate.getDay()];
         const month = months[currentDate.getMonth()];
         const date = currentDate.getDate()
-        const dateformat = `${weekDay}, ${month} ${date}`
+        const dateformat = `${weekDay}, ${date} ${month} '${currentDate.getFullYear().toString().substr(2, 2)}`
 
-        const dateAndTime = `${timeformat} ${dateformat}`
+        const dateAndTime = `${timeformat} - ${dateformat}`
 
-        return dateAndTime;
+
+        const dayOne_dateformat = `${days[currentDate.getDay() + 1]},
+                                   ${currentDate.getDate() + 1}
+                                   ${month}  
+                                   '${currentDate.getFullYear().toString().substr(2, 2)}`
+
+        const dayTwo_dateformat = `${days[currentDate.getDay() + 2]},
+                                   ${currentDate.getDate() + 2}
+                                   ${month}  
+                                   '${currentDate.getFullYear().toString().substr(2, 2)}`
+        
+        const dayThree_dateformat = `${days[currentDate.getDay() + 3]},
+                                   ${currentDate.getDate() + 3}
+                                   ${month}  
+                                   '${currentDate.getFullYear().toString().substr(2, 2)}`
+
+        const dayFour_dateformat = `${days[currentDate.getDay() + 4]},
+                                   ${currentDate.getDate() + 4}
+                                   ${month}  
+                                   '${currentDate.getFullYear().toString().substr(2, 2)}`
+        
+        const dayFive_dateformat = `${days[currentDate.getDay() + 5]},
+                                   ${currentDate.getDate() + 5}
+                                   ${month}  
+                                   '${currentDate.getFullYear().toString().substr(2, 2)}`
+
+        const daySix_dateformat = `${days[currentDate.getDay() + 6]},
+                                   ${currentDate.getDate() + 6}
+                                   ${month}  
+                                   '${currentDate.getFullYear().toString().substr(2, 2)}`
+
+
+        
+        return {
+            dateAndTime,
+            dayOne_dateformat,
+            dayTwo_dateformat,
+            dayThree_dateformat,
+            dayFour_dateformat,
+            dayFive_dateformat,
+            daySix_dateformat,
+            timeformat};
     }
 
     
@@ -37,7 +79,7 @@ function Main() {
         <SearchBar />
         <div className='flex flex-col justify-start bg-custom-primary p-3 min-[520px]:px-6 md:py-8'>
             <div className='card-top-data py-3'>
-                <h4 className='font-Coiny text-[15px] uppercase md:text-2xl'>{formattedDate}</h4>
+                <h4 className='font-Coiny text-[15px] uppercase md:text-2xl'>{formattedDate.dateAndTime}</h4>
                 <h3 className='font-Comfortaa text-[11px] md:text-lg'>Raining</h3>
             </div>
             <div className='weather-image'>
@@ -70,32 +112,38 @@ function Main() {
                         backgroundColor={"custom-secondary"}
                         textColor={"custom-white"}
                         flexDirection={"col"}
+                        nextDate={formattedDate.dayOne_dateformat}
                     />
                     <Card 
                         backgroundColor={"custom-white"}
                         textColor={"custom-secondary"} 
                         flexDirection={"col"}
+                        nextDate={formattedDate.dayTwo_dateformat}                      
                     />
                     <Card 
                         backgroundColor={"custom-accent"}
                         textColor={"custom-white"}
                         flexDirection={"col"}
+                        nextDate={formattedDate.dayThree_dateformat}
                     />
                     <Card
                         backgroundColor={"custom-primary"}
                         textColor={"custom-secondary"} 
                         flexDirection={"col"}
+                        nextDate={formattedDate.dayFour_dateformat}
                     />
                 </div>
                 <div className='md:flex md:justify-between gap-4' > 
                     <Card 
                         backgroundColor={"custom-white"}
                         textColor={"custom-secondary"} 
+                        nextDate={formattedDate.dayFive_dateformat}
                     />
                     
                     <Card 
                         backgroundColor={"custom-white"}
                         textColor={"custom-secondary"} 
+                        nextDate={formattedDate.daySix_dateformat}
                     />
                 </div>
             </div>
