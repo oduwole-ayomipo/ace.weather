@@ -3,7 +3,9 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Coiny&family=Comfortaa&display=swap');
 
-
+h1, h2, h3, h4, h5, h6, p, input {
+    color: #DDE5EF;
+}
 .card-container {
     box-shadow: 0 0 5px 0.1px rgba(0, 0, 0, 0.2);
 }

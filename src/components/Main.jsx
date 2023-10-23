@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card'
 import SearchBar from './SearchBar'
-
+import sunIcon from '../assets/sunicon.png'
 
 function Main() {
 
@@ -76,23 +76,27 @@ function Main() {
     <div className='main-container relative w-full opacity-80'>
         <SearchBar />
         <div className='flex flex-col justify-start p-3 min-[520px]:px-6 md:py-8'>
-            <div className='card-top-data py-3'>
+            <div className='card-top-data mb-12'>
                 <h4 className='font-Coiny text-[15px] uppercase md:text-2xl'>{formattedDate.dateAndTime}</h4>
-                <h3 className='font-Comfortaa text-[11px] md:text-lg'>Raining</h3>
+                <div className='weatherForecast flex items-center py-2 gap-1'>
+                    <span>
+                        <img 
+                            className='sunIcon h-7'
+                            src={sunIcon} 
+                            alt="Sunny" />
+                    </span>
+                    <h3 className='font-Comfortaa text-sm md:text-lg'>Sunny</h3>
+                </div>
             </div>
-            <div className='weather-image'>
-                <img 
-                    className='h-28 md:h-36' 
-                    alt=''/>
-            </div>
+            
             <div className='main-weather-data flex items-center'>
                 <div className='font-Coiny flex text-7xl leading-[70px] md:text-9xl'>
                     <h4>16 </h4>
-                    <div className='degrees pt-3 text-3xl leading-[20px] h-full md:text-5xl'>°</div>
+                    <div className='degrees pt-3 text-3xl leading-[20px] text-custom-white h-full md:text-5xl'>°</div>
 
                 </div>
                 <div className='card-buttom-data px-2 flex flex-col'>
-                    <h4 className='font-Coiny text-2xl leading-[23px] tracking-tighter md:text-4xl'>London</h4>
+                    <h4 className='font-Coiny text-2xl leading-[23px]  md:text-4xl'>London</h4>
                     <h3 className='font-Comfortaa text-[10px] md:text-lg'>Temp: <span>18.71</span>  Wind: <span>4.31 m/s</span> Humidity: <span>76%</span></h3>
                 </div>
             </div>
