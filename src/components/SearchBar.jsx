@@ -1,7 +1,22 @@
 import React from 'react';
 import { UilSearch } from '@iconscout/react-unicons';
+import CurrentLocation from "./CurrentLocation"
 
-function SearchBar() {
+
+
+function SearchBar({ onLocationUpdate }) {
+
+    const handleButtonClick = async () => {
+      try {
+        const data = await CurrentLocation();
+        onLocationUpdate(data);
+      } catch (error) {
+        console.error(error);
+        // Handle error here, e.g., display an error message to the user
+      }
+    };
+    
+
   return (
     <div className='Nav-bar flex flex-wrap md:flex-nowrap md:items-center justify-center px-6'>
       <div className='Logo mr-auto w-full text-center mt-6 md:w-fit'>
@@ -24,7 +39,7 @@ function SearchBar() {
             />
         </div>
         <div className='location-button-container whitespace-normal mx-4 md:mx-8 '>
-            <p className='location-button p-1' role='button'>use current <br /> location</p>
+            <p className='location-button p-1' role='button' onClick={handleButtonClick}>use current <br /> location</p>
         </div>
     </div>
     </div>
