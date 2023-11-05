@@ -1,17 +1,18 @@
 const API_KEY = "fef31d52f1263e1c90234c0421e8716d";
 const BASE_URL = "https://api.openweathermap.org/geo/1.0/direct";
 
-let city = "London";
-
+let city;
 const getGeoCoordinate = (city) => {
+
     const url = new URL(BASE_URL);
+    console.log(city);
     url.search = new URLSearchParams({
         q: city,
         limit: 5,
         appid: API_KEY,
     });
 
-    console.log(url);
+    
 
     return fetch(url)
         .then(response => {
@@ -37,6 +38,8 @@ const getGeoCoordinate = (city) => {
             console.error("Error fetching weather data:", error);
         });
 };
+
+
 
 getGeoCoordinate(city)
     .then(result => console.log(result))

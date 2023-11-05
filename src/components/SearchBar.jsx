@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { UilSearch } from '@iconscout/react-unicons';
 
 
-function SearchBar() {
+function SearchBar({onSearch}) {
+
+  const [searchCity, setsearchCity] = useState('');  
+
+  const handleSearch = () => {
+    onSearch(searchCity);
+  };
 
   return (
     <div className='Nav-bar flex flex-wrap md:flex-nowrap md:items-center justify-center px-6'>
@@ -16,6 +22,7 @@ function SearchBar() {
         <div className='input-field flex items-center backdrop-blur-[20px] bg-gradient-to-br from-[#FFFFFF33] to-[#FFFFFF33] rounded-2xl focus:outline-none min-w-[60%] shadow-md'>
             <span className='px-2'>
                 <UilSearch className="w-4 text-custom-white" role="button"
+                    onClick={handleSearch}
                  />
             </span>
             <input
@@ -24,6 +31,13 @@ function SearchBar() {
             name="search"
             id="search"
             placeholder="search city..."
+            value={searchCity}
+            onInput={(e) => {setsearchCity(e.target.value)}}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleSearch();
+              }
+            }}
             />
         </div>
         <div className='location-button-container whitespace-normal mx-4 md:mx-8 '>
@@ -31,7 +45,7 @@ function SearchBar() {
         </div>
     </div>
     </div>
-    
+
 
   );
 }

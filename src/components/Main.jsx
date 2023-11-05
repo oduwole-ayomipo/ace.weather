@@ -7,6 +7,7 @@ import lightRain from '../assets/light-rain.png'
 import thunderstorm from '../assets/thunderstorm.png'
 import snow from '../assets/snow.png'
 import dayThunderstorm from '../assets/day-thunderstorm.png'
+import getGeoCoordinate from '../services/geocoding'
 
 function Main() {
 
@@ -67,7 +68,7 @@ function Main() {
 
   return (
     <div className='main-container relative w-full opacity-80'>
-        <SearchBar />
+        <SearchBar onSearch={getGeoCoordinate} />
         <div className='flex flex-col justify-start p-3 min-[520px]:px-6 md:py-8'>
             <div className='card-top-data mb-12'>
                 <h4 className='font-Coiny text-[15px] uppercase md:text-2xl'>{timeformat} - {dateformat}</h4>
