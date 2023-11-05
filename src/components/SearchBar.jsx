@@ -1,13 +1,18 @@
 import React, {useState} from 'react';
 import { UilSearch } from '@iconscout/react-unicons';
+import getGeoCoordinate from '../services/geocoding';
 
-
-function SearchBar({onSearch}) {
+function SearchBar() {
 
   const [searchCity, setsearchCity] = useState('');  
 
-  const handleSearch = () => {
-    onSearch(searchCity);
+  const handleSearch = async () => {
+    try {
+      const result = await getGeoCoordinate(searchCity);
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
