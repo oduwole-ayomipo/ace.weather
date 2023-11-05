@@ -1,21 +1,8 @@
 import React from 'react';
 import { UilSearch } from '@iconscout/react-unicons';
-import CurrentLocation from "./CurrentLocation"
 
 
-
-function SearchBar({ onLocationUpdate }) {
-
-    const handleButtonClick = async () => {
-      try {
-        const data = await CurrentLocation();
-        onLocationUpdate(data);
-      } catch (error) {
-        console.error(error);
-        // Handle error here, e.g., display an error message to the user
-      }
-    };
-    
+function SearchBar() {
 
   return (
     <div className='Nav-bar flex flex-wrap md:flex-nowrap md:items-center justify-center px-6'>
@@ -28,7 +15,8 @@ function SearchBar({ onLocationUpdate }) {
       <div className='search-navbar flex items-center justify-between font-Comfortaa font-medium text-xs w-full my-8 max-[284px]:text-[10px]  md:justify-end'>
         <div className='input-field flex items-center backdrop-blur-[20px] bg-gradient-to-br from-[#FFFFFF33] to-[#FFFFFF33] rounded-2xl focus:outline-none min-w-[60%] shadow-md'>
             <span className='px-2'>
-                <UilSearch className="w-4 text-custom-white" role="button" />
+                <UilSearch className="w-4 text-custom-white" role="button"
+                 />
             </span>
             <input
             className='input-field bg-[#ffffff00] rounded-2xl w-full py-2 focus:outline-none capitalize placeholder:lowercase'
@@ -39,7 +27,7 @@ function SearchBar({ onLocationUpdate }) {
             />
         </div>
         <div className='location-button-container whitespace-normal mx-4 md:mx-8 '>
-            <p className='location-button p-1' role='button' onClick={handleButtonClick}>use current <br /> location</p>
+            <p className='location-button p-1' role='button' >use current <br /> location</p>
         </div>
     </div>
     </div>

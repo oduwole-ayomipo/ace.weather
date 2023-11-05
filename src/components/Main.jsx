@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Card from './Card'
 import SearchBar from './SearchBar'
-import CurrentLocation from "./CurrentLocation"
 import clearSky from '../assets/clear-sky.png'
 import overcastClouds from '../assets/overcast-clouds.png'
 import lightRain from '../assets/light-rain.png'
@@ -24,7 +23,7 @@ function Main() {
       };
     }, []);
   
-    const days = ["Monday", 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const days = ["Sunday", "Monday", 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday'];
     const months = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'Sept', 'Oct', 'Nov', 'Dec'];
   
     // formatting the time
@@ -35,32 +34,32 @@ function Main() {
     const timeformat = `${hours % 12 || 12}:${formattedMinute} ${amPM}`;
   
     // formatting the date
-    const weekDay = days[currentDate.getDay() - 1];
+    const weekDay = days[currentDate.getDay()];
     const month = months[currentDate.getMonth()];
     const date = currentDate.getDate();
     const dateformat = `${weekDay}, ${date} ${month} '${currentDate.getFullYear().toString().substr(2, 2)}`;
   
-    const dayOne_dateformat = `${days[(currentDate.getDay()) % 7]}, 
+    const dayOne_dateformat = `${days[(currentDate.getDay() + 1) % 7]}, 
                                ${(currentDate.getDate() + 1) } 
                                ${month} 
                                '${currentDate.getFullYear().toString().substr(2, 2)}`;
-    const dayTwo_dateformat = `${days[(currentDate.getDay() + 1) % 7]}, 
+    const dayTwo_dateformat = `${days[(currentDate.getDay() + 2) % 7]}, 
                                ${currentDate.getDate() + 2} 
                                ${month} 
                                '${currentDate.getFullYear().toString().substr(2, 2)}`;
-    const dayThree_dateformat = `${days[(currentDate.getDay() + 2) % 7]},
+    const dayThree_dateformat = `${days[(currentDate.getDay() + 3) % 7]},
                                  ${currentDate.getDate() + 3} 
                                  ${month} 
                                  '${currentDate.getFullYear().toString().substr(2, 2)}`;
-    const dayFour_dateformat = `${days[(currentDate.getDay() + 3) % 7]}, 
+    const dayFour_dateformat = `${days[(currentDate.getDay() + 4) % 7]}, 
                                 ${currentDate.getDate() + 4} 
                                 ${month} 
                                '${currentDate.getFullYear().toString().substr(2, 2)}`;
-    const dayFive_dateformat = `${days[(currentDate.getDay() + 4) % 7]}, 
+    const dayFive_dateformat = `${days[(currentDate.getDay() + 5) % 7]}, 
                                 ${currentDate.getDate() + 5} 
                                 ${month} 
                                '${currentDate.getFullYear().toString().substr(2, 2)}`;
-    const daySix_dateformat = `${days[(currentDate.getDay() + 5) % 7]}, 
+    const daySix_dateformat = `${days[(currentDate.getDay() + 6) % 7]}, 
                                 ${currentDate.getDate() + 6} 
                                 ${month} 
                                '${currentDate.getFullYear().toString().substr(2, 2)}`;
@@ -107,50 +106,50 @@ function Main() {
                     <Card 
                         nextDate={dayOne_dateformat}
                         weatherIcon={lightRain}
-                        weatherForecast={"Light Rain"}
-                        alt = {"Light Rain"}
-                        High={"16.98"}
-                        Low={"10.23"}
+                        weatherForecast="Light Rain"
+                        alt = "Light Rain"
+                        High= "16.98"
+                        Low="10.23"
                     />
                     <Card 
                         nextDate={dayTwo_dateformat}  
                         weatherIcon={clearSky} 
-                        weatherForecast={"Clear Sky"}
-                        alt = {"Clear Sky"}
-                        High={"16.98"}
-                        Low={"10.23"}
+                        weatherForecast="Clear Sky"
+                        alt = "Clear Sky"
+                        High="16.98"
+                        Low="10.23"
                     />
                     <Card 
                         nextDate={dayThree_dateformat}
                         weatherIcon={thunderstorm} 
-                        weatherForecast={"Thunderstorm"}
-                        alt = {"Thunderstorm"}
-                        High={"16.98"}
-                        Low={"10.23"}
+                        weatherForecast="Thunderstorm"
+                        alt = "Thunderstorm"
+                        High="16.98"
+                        Low="10.23"
                     />
                     <Card
                         nextDate={dayFour_dateformat}
                         weatherIcon={snow} 
-                        weatherForecast={"Snow"}
-                        alt = {"Snow"}
-                        High={"16.98"}
-                        Low={"10.23"}
+                        weatherForecast="Snow"
+                        alt = "Snow"
+                        High="16.98"
+                        Low="10.23"
                     />
                     <Card
                         nextDate={dayFive_dateformat}
                         weatherIcon={overcastClouds} 
-                        weatherForecast={"Overcast Clouds"}
-                        alt = {"Overcast Clouds"}
-                        High={"16.98"}
-                        Low={"10.23"}
+                        weatherForecast="Overcast Clouds"
+                        alt = "Overcast Clouds"
+                        High="16.98"
+                        Low="10.23"
                     />
                     <Card
                         nextDate={daySix_dateformat}
                         weatherIcon={dayThunderstorm} 
-                        weatherForecast={"Thunderstorm"}
-                        alt = {"Thunderstorm"}
-                        High={"16.98"}
-                        Low={"10.23"} 
+                        weatherForecast="Thunderstorm"
+                        alt = "Thunderstorm"
+                        High="16.98"
+                        Low="10.23"
                     />
                 </div>
             </div>

@@ -13,7 +13,7 @@ function Card({
       <div className='card-head'>
         <h4 className='font-Coiny text-sm uppercase'>{nextDate}</h4>
       </div>
-        <div className='card-body flex justify-between min-[320px]:flex-col'>
+        <div className='card-body flex justify-between flex-row'>
           <div className='card-top-data'>
               <div className='forecast-container flex flex-col gap-1 items-start'>
                 <img 
@@ -27,8 +27,8 @@ function Card({
         
           </div>
           <div className={`weather-parameter flex flex-col justify-between weather-parameter font-Comfortaa text-[0.7rem]`}>
-            <h3 className=''>H: <span>{High}°c</span></h3>
-            <h3 className=''>L: <span>{Low}°c</span></h3>
+            <h3 className=''>High: <span>{High}°c</span></h3>
+            <h3 className=''>Low: <span>{Low}°c</span></h3>
           </div>
         </div>
         
