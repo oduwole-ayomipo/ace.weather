@@ -29,11 +29,11 @@ const getGeoCoordinate = async (city) => {
         throw new Error('No data found for the specified city');
       }
     } catch (error) {
-      console.error("Error fetching weather data:", error);
+      console.error("Error fetching location data:", error);
       throw error; // Rethrow the error to be caught in the handleSearch function
     }
   };
 
-  
+
   
 export default getGeoCoordinate;

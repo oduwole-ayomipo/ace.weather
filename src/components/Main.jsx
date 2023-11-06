@@ -1,15 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import Card from './Card'
-import SearchBar from './SearchBar'
 import clearSky from '../assets/clear-sky.png'
 import overcastClouds from '../assets/overcast-clouds.png'
 import lightRain from '../assets/light-rain.png'
 import thunderstorm from '../assets/thunderstorm.png'
 import snow from '../assets/snow.png'
 import dayThunderstorm from '../assets/day-thunderstorm.png'
-import getGeoCoordinate from '../services/geocoding'
 
-function Main() {
+function Main({ locationData }) {
 
     // Date format logic
     const [currentDate, setCurrentDate] = useState(new Date());
@@ -68,7 +66,7 @@ function Main() {
 
   return (
     <div className='main-container relative w-full opacity-80'>
-        <SearchBar onSearch={getGeoCoordinate} />
+        
         <div className='flex flex-col justify-start p-3 min-[520px]:px-6 md:py-8'>
             <div className='card-top-data mb-12'>
                 <h4 className='font-Coiny text-[15px] uppercase md:text-2xl'>{timeformat} - {dateformat}</h4>
@@ -86,11 +84,11 @@ function Main() {
             <div className='main-weather-data flex items-center'>
                 <div className='font-Coiny flex text-7xl leading-[70px] md:text-9xl'>
                     <h4>16 </h4>
-                    <div className='degrees pt-3 text-3xl leading-[20px] text-custom-white h-full md:text-5xl'>°</div>
+                    <div className='degrees pt-3 text-3xl leading-[20px] text-custom-white h-full md:text-5xl'>°C</div>
 
                 </div>
                 <div className='card-buttom-data px-2 flex flex-col'>
-                    <h2 className='font-Coiny text-2xl leading-[23px]  md:text-4xl'>Lagos, NG </h2>
+                    <h2 className='font-Coiny text-2xl leading-[23px]  md:text-4xl'> {locationData ? `${locationData.name}, ${locationData.country}` : 'Lagos, NG'}</h2>
                     <h3 className='font-Comfortaa mt-1.5 text-[10px] md:text-lg'>High: <span>18.71°c</span> Low: <span>18.71°c</span></h3>
                 </div>
             </div>

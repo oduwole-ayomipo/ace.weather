@@ -1,19 +1,14 @@
-import React, {useState} from 'react';
 import { UilSearch } from '@iconscout/react-unicons';
-import getGeoCoordinate from '../services/geocoding';
 
-function SearchBar() {
+function SearchBar({ searchCity, setSearchCity, onSearch, onCurrentLocation }) {
 
-  const [searchCity, setsearchCity] = useState('');  
-
-  const handleSearch = async () => {
-    try {
-      const result = await getGeoCoordinate(searchCity);
-      console.log(result);
-    } catch (error) {
-      console.error(error);
-    }
+  const handleSearch = () => {
+    onSearch();
   };
+
+  const currentLocationSearch = () => {
+    onCurrentLocation();
+  }
 
   return (
     <div className='Nav-bar flex flex-wrap md:flex-nowrap md:items-center justify-center px-6'>
@@ -37,16 +32,18 @@ function SearchBar() {
             id="search"
             placeholder="search city..."
             value={searchCity}
-            onInput={(e) => {setsearchCity(e.target.value)}}
+            onInput={(e) => setSearchCity(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
                 handleSearch();
               }
             }}
             />
+
+         
         </div>
         <div className='location-button-container whitespace-normal mx-4 md:mx-8 '>
-            <p className='location-button p-1' role='button' >use current <br /> location</p>
+            <p className='location-button p-1' role='button' onClick={currentLocationSearch} >use current <br /> location</p>
         </div>
     </div>
     </div>
